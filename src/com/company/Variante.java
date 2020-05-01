@@ -4,7 +4,7 @@ package com.company;
  *  Created by Thomas on 21.11.2014.
  */
 public class Variante {
-    public Stellung BesteZuege[] = new Stellung[10];
+    public Stellung[] BesteZuege = new Stellung[10];
     public int Bewertung;
     public int Tiefe;
     public int BerechneteStellungen;
@@ -42,10 +42,10 @@ public class Variante {
             return LokalerKnoten; // Ast nicht weiter traversieren
         }
 
-        if ((Level>=Rechentiefe & !Ausgangslage.Schlagzug) || Level>=MaxRT ){ // Wir sind am Rekursionsende und fast fertig.
+        if (!(!(Level >= Rechentiefe & !Ausgangslage.isSchlagzug()) && !(Level >= MaxRT))){ // Wir sind am Rekursionsende und fast fertig.
             LokalerKnoten.Bewertung = lokaleBewertung;
             LokalerKnoten.BerechneteStellungen = 1;
-            if (Ausgangslage.Schlagzug) LokalerKnoten.BerechneteSchlagzuege =1;
+            if (Ausgangslage.isSchlagzug()) LokalerKnoten.BerechneteSchlagzuege =1;
             return LokalerKnoten;
         }
 

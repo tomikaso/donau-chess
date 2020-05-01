@@ -6,7 +6,7 @@ public class Stellung implements Cloneable {
 
         char  [][] feld = new char [8][8];
         boolean WeissAmZug;
-        boolean Schlagzug;
+        private boolean Schlagzug;
         int RochadeWeiss = 0; // 0 möglich, 1 rochiert, 2 nicht möglich
         int RochadeSchwarz = 0;
 
@@ -152,5 +152,13 @@ public class Stellung implements Cloneable {
             System.out.println("   A B C D E F G H  waz=" + WeissAmZug);
         // gibt die Felder aus
         }
+
+    public boolean isSchlagzug() {
+        return Schlagzug;
     }
+
+    public void setSchlagzug(boolean schlagzug) {
+        Schlagzug = schlagzug;
+    }
+}
 

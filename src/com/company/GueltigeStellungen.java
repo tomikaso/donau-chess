@@ -30,7 +30,7 @@ public class GueltigeStellungen {
         }
         NeuePosition[Einfue] = new Stellung();
         NeuePosition[Einfue] = Brett.clooney();
-        NeuePosition[Einfue].Schlagzug = SZ;
+        NeuePosition[Einfue].setSchlagzug(SZ);
         NeuePosition[Einfue].feld[i][j]= 32; //Figur rückt vor
 
         NeuePosition[Einfue].feld[m][n]= figur; //Figur am neuen Ort
@@ -42,7 +42,7 @@ public class GueltigeStellungen {
         Position++;
         }
 
-   GueltigeStellungen getStellungen(Stellung aktuellesBrett) {
+   void getStellungen(Stellung aktuellesBrett) {
         Position = 0;
         boolean WeissAmZug;
         int WegLO ;
@@ -330,9 +330,8 @@ public class GueltigeStellungen {
                                 if (WegLO == 1 && i + n <= 7 && j - n >= 0 && (aktuellesBrett.feld [i+ n][j- n] == 32 || aktuellesBrett.feld [i+ n][j- n]> 96)) {
                                     // der Dame kann nach links oben vorrücken!
 
-                                    if (aktuellesBrett.feld [i+ n][j- n] > 96) {
-                                        WegLO = 0;
-                                    } // Das wird ein Schlagzug, danach ist Schluss
+                                    // Das wird ein Schlagzug, danach ist Schluss
+                                    if (aktuellesBrett.feld [i+ n][j- n] > 96) WegLO = 0;
                                     Ziehen(aktuellesBrett,i,j,i+n ,j-n,'D', !WeissAmZug); // Dame am neuen Ort
                                 } else {
                                     WegLO = 0;
@@ -784,7 +783,6 @@ public class GueltigeStellungen {
            }
 
        }
-    return GueltigeStellungen.this;
-    }
+   }
     int length (){ return Position;}
 }

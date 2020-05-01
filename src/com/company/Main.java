@@ -17,6 +17,7 @@ public class Main {
 
         Brett1.Grundstellung();
         System.out.println ("Grundstellung gesetzt");
+        System.out.println ("Zugeingabe via normaler Notation, z.B. 'B7B5'. Schlagzeichen x weglassen");
 
         Brett1.StellungAusgeben();
 
